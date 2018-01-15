@@ -1,0 +1,94 @@
+Grammar file for our langauge written using EBNF notation
+The following key shows the ease of implementation for each non-terminal
+(b) == Basic
+(i) == Intermediate
+(a) == Advanced
+
+program ::= statement*
+
+statement ::= expression_statement (b)
+            | function_declaration_statement (i)
+            | variable_declaration_statement (b)
+            | variable_assignment_statement (b)
+            | array_declaration_statement (a)
+            | array_assignment_statement (a)
+            | if_statement (b)
+            | while_statement (b)
+            | block_statement (b)
+
+(i)
+function_declaration_statement = 'func' type IDENTIFIER '(' (arguments)? ')' '{' statement* '}'
+arguments ::= argument ( ',' argument )*
+argument ::= type IDENTIFIER
+
+(b)
+expression_statement ::= expression ';'
+
+(b)
+variable_declaration_statement ::= type IDENTIFIER ( '=' expression )? ';'
+
+(b)
+variable_assignment_statement ::= IDENTIFIER '=' expression_statement
+
+(a)
+array_declaration_statement ::= type '[' ']' IDENTIFIER '=' ( array )?';'
+
+(a)
+array_assignment_statement ::= IDENTIFIER ( array_element_access )? '=' ( array | expression ) ';'
+
+(b)
+if_statement ::= 'if' '(' expression ')' statement ( 'elseif' statement )* ( 'else' statement )?
+
+(b)
+while_statement ::= 'while' '(' expression ')' statement
+
+(b)
+block_statement ::= '{' statement* '}'
+
+(b)
+expression ::= logic_or
+
+(b)
+logic_or ::= logic_and ( 'or' logic_and )*
+
+(b)
+logic_and ::= comparisons_equality ( 'and' comparisons_equality )*
+
+(b)
+comparisons_equality ::= comparisons_lesser_greater ( ( '==' | '!=' ) comparisons_lesser_greater )*
+
+(b)
+comparisons_lesser_greater ::= addition ( ( '<' | '<=' | '>' | '>=' ) addition )*
+
+(b)
+addition ::= multiplication ( ( '+' | '-' ) multiplication )*
+
+(b)
+multiplication ::= primary ( ( '*' | '/' ) primary )*
+
+(b)
+primary ::= '(' expression ')' (b)
+          | IDENTIFIER array_access (a)
+          | call (i)
+          | array
+          | STRING (b)
+          | IDENTIFIER (b)
+          | INTEGER (b)
+          | FLOAT (b)
+          | BOOLEAN (b)
+          | 'null' (b)
+
+(a)
+array ::= '[' ( array_values )? ']'
+array_values ::= primary ( ',' array_values )*
+array_element_access ::= '[' expression ']'
+
+(i)
+call ::= IDENTIFIER '(' parameters ')'
+parameters ::= IDENTIFIER ( ',' IDENTIFIER )*
+
+(b)
+type ::= 'int'
+        | 'float'
+        | 'bool'
+        | 'str'

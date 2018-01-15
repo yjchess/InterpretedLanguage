@@ -39,3 +39,4 @@ class TokenType:
     IDENTIFIER = 25
     KEYWORD = 26
     BOOLEAN = 27
+    BUILTINTYPE = 28

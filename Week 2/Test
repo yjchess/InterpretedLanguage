@@ -1,7 +1,7 @@
-count = 0;
-prices = [12.9, 13.7, 0.12, 200.05];
-total = 0;
-flag = false;
+int count = 0;
+float[] prices = [12.9, 13.7, 0.12, 200.05];
+float total = 0;
+bool flag = false;
 
 while (count <= prices.length) {
     if (flag == true) {

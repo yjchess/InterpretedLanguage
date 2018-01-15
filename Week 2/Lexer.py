@@ -17,8 +17,9 @@ class Lexer:
 
         self.__line = 1
 
-        self.__keywords = ["if", "else", "while", "null"]
+        self.__keywords = ["if", "else", "while", "null", "func", "or", "and"]
         self.__booleans = ["true", "false"]
+        self.__builtinTypes = ["int", "float", "str", "bool"]
 
         self.__tokens = []
 
@@ -107,6 +108,8 @@ class Lexer:
 
                 if identifier in self.__keywords: # Check if this is a keyword
                     self.__tokens.append(Token(identifier, TokenType.KEYWORD, self.__line))
+                elif identifier in self.__builtinTypes: # Check if it is a type keyword
+                    self.__tokens.append(Token(identifier, TokenType.BUILTINTYPE, self.__line))
                 elif identifier in self.__booleans: # Check if it is a boolean
                     self.__tokens.append(Token(identifier, TokenType.BOOLEAN, self.__line))
                 else:
