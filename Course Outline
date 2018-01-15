@@ -1,0 +1,33 @@
+Making an interpreted language
+
+Structure:
+    Week 1 : Introduction
+        What is an interpreter?
+        Different stages
+        Lexer - Tokens
+        Parser - AST
+        Interpreter - Execution
+
+    Week 2 : Lexical Analysis
+        What is a token?
+        Regular expressions
+        1 character tokenising
+        Multiple character tokenising
+        Error handling
+
+    Week 3 : Parsers part 1
+        EBNF (Extended Backus Naur Form)
+        LL(1) parser
+
+    Week 4 : Parsers part 2
+        Grammar problems
+        Syntax errors and synchronising
+        Parse tree
+
+    Week 5 : AST construction
+        AST vs parse tree
+        Homogenous vs Heterogenous
+
+    Week 6 : AST walking
+        Syntax directed execution
+        Visitor method

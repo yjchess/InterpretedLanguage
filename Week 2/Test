@@ -1,0 +1,12 @@
+count = 0;
+prices = [12.9, 13.7, 0.12, 200.05];
+total = 0;
+flag = false;
+
+while (count <= prices.length) {
+    if (flag == true) {
+        io.out("We are done");
+    } else {
+    total = total + price.at(count);
+    }
+}

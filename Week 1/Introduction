@@ -1,0 +1,16 @@
+What are we building:
+    - An interpreter for a simple programming langauge.
+
+What is an interpreter:
+    - An interpreter is a program that takes in a source program as input and executes it.
+
+Why:
+    - Hopefully for fun is enough.
+    - Build an understanding of how programming languages may be created.
+    - Appreciate the hard work of langauge engineers that we take for granted whenever we write any code.
+
+Stages:
+    - Lexical analysis : breaks up input source into a sequence of tokens.
+    - Syntactic analysis : figures out the different programming structures used and
+                           reports errors if code doesn't conform to the grammar of the langauge. Creates an AST.
+    - AST walking : traverses the AST created by the parser and exectutes each node.
